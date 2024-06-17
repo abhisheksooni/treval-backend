@@ -25,7 +25,7 @@ const fileupload = multer({
         cb(null, "uploads")
       },
       filename: function (res, file, cb) {
-        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname) )
+        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname) +".png" )
       }
     })
   }).any("filedata",);
