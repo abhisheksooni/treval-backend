@@ -29,8 +29,8 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-    res.setHeader('Access-Control-Allow-Origin', 'https://treval-backend.onrender.com');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173' || 'https://treval-backend.onrender.com');
+    // res.setHeader('Access-Control-Allow-Origin', 'https://treval-backend.onrender.com');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
