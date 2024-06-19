@@ -10,7 +10,7 @@ const cloudinary = require('cloudinary').v2;
 const cannectDB = require("./DB/CannectDB.js")
 const adminUser = require("./Models/user.model.js")
 const {fileupload,uploadToCloudinary} = require("./middlewares/createTour.middleware.js")
-const {getAllTour,getFindOne,createPakeage, createAndLogin} = require("./Controllers/tours.controllers.js")
+const {getAllTour,getFindOne,createPakeage, createAndLogin,DeleteOnePakeage, UpdateOnePakeage} = require("./Controllers/tours.controllers.js")
 
 // cloudinaty config
 cloudinary.config({
@@ -56,9 +56,9 @@ app.get("/getOne/:id",getFindOne)
 
 app.post("/create-tour",fileupload,uploadToCloudinary)
 
-
+app.delete("/delete/:id",DeleteOnePakeage)
+app.post("/tour_update/:id",fileupload,UpdateOnePakeage)
 // uploadToCloudinary
-
 app.post("/upload",fileupload,uploadToCloudinary,(req,res)=>{
     res.send("Upload done")
 })
